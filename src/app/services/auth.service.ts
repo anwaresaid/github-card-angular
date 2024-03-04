@@ -14,34 +14,29 @@ import { UserInterface } from '../models/user.interface';
 })
 export class AuthService {
   firebaseAuth = inject(Auth);
-
+  // Inject the Auth service and create a user observable
   user$ = user(this.firebaseAuth);
   currentUserSig = signal<UserInterface | null | undefined>(undefined);
-  loading = false;
-
+  // Inject the Auth service and create a user observable
   login(email: string, password: string): Observable<void> {
-    this.loading = true;
     const promise = signInWithEmailAndPassword(
       this.firebaseAuth,
       email,
       password
     ).then(() => {
+      // Set the user loggiedIn in local storage
       localStorage.setItem('user', 'loggedIn');
-      this.loading = false;
     });
     return from(promise);
   }
-
+  // return true if use loggedin
   isLoggedIn() {
     if (this.currentUserSig()) {
       return true;
     }
     return false;
   }
-  isLoding() {
-    return this.loading;
-  }
-
+  // remove the current user from local storage
   logout(): Observable<void> {
     const promise = signOut(this.firebaseAuth).then(() => {
       localStorage.removeItem('user');

@@ -1,10 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  Input,
-  ViewChild,
-  Renderer2,
-} from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -15,8 +9,9 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
 })
 export class CardComponent {
+  // ViewChild decorator to get a reference to the card element
   @ViewChild('card', { static: true }) cardRef!: ElementRef<HTMLDivElement>;
-
+  // Input decorator to get the card data from the parent component
   @Input() cardData: {
     title: string;
     image: string;
@@ -28,9 +23,9 @@ export class CardComponent {
     content: '',
     gradientColor: 'rgba(0, 250, 0, 0.2)',
   };
-
+  // Function to handle the mousemove event
   ngAfterViewInit() {
-    // Ensure the event listeners are added after the view initializes
+    // Add event listeners for mousemove and mouseleave events
     this.cardRef.nativeElement.addEventListener(
       'mousemove',
       this.handleMouseMove.bind(this)
@@ -40,8 +35,9 @@ export class CardComponent {
       this.resetCardStyle.bind(this)
     );
   }
-
+  // Function to handle the mousemove event
   handleMouseMove(event: MouseEvent): void {
+    // Get the card element's bounding rectangle
     const cardRect = this.cardRef.nativeElement.getBoundingClientRect();
     const mouseX = event.clientX - cardRect.left - cardRect.width / 2; // Distance from center
     const mouseY = event.clientY - cardRect.top - cardRect.height / 2; // Distance from center
@@ -65,7 +61,7 @@ export class CardComponent {
     } 0%, rgb(22, 27, 34) ${radius}px)`;
     this.cardRef.nativeElement.style.background = `rgb(22, 27, 34) ${gradientStyle}`;
   }
-
+  // Function to reset the card style on mouseleave
   resetCardStyle(): void {
     this.cardRef.nativeElement.style.transform = 'rotateX(0) rotateY(0)';
     this.cardRef.nativeElement.style.background = 'rgb(22, 27, 34)';

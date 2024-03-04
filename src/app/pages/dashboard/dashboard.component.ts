@@ -12,16 +12,18 @@ import { Router } from '@angular/router';
   styleUrl: './dashboard.component.css',
 })
 export class DashboardComponent {
+  //injections
   authService = inject(AuthService);
   router = inject(Router);
-
+  //logout function to delete the token and navigate to login page
   onLogout() {
     this.authService.logout();
     this.router.navigate(['']);
   }
+  //sample data array
   cardDataArray = [
     {
-      title: 'Dynamic Card Title 1',
+      title: 'Dynamic Card Title 11',
       image:
         'https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-980x653.jpg',
       content:
@@ -29,7 +31,7 @@ export class DashboardComponent {
       gradientColor: 'rgba(0, 250, 0, 0.2)',
     },
     {
-      title: 'Dynamic Card Title 1',
+      title: 'Dynamic Card Title 11',
       image:
         'https://media.istockphoto.com/id/693339470/photo/ganesha.webp?s=2048x2048&w=is&k=20&c=39ZLSbHabiYrTGZiWAo83MBI-pbFffAMM6Ix3VNemg4=',
       content:

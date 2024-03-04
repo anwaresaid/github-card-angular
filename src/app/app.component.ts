@@ -13,6 +13,7 @@ import { CardComponent } from './card/card.component';
 export class AppComponent {
   authService = inject(AuthService);
 
+  // Inject the AuthService and subscribe to the user observable
   ngOnInit() {
     this.authService.user$.subscribe((user) => {
       if (user) {
@@ -23,7 +24,6 @@ export class AppComponent {
       } else {
         this.authService.currentUserSig.set(null);
       }
-      console.log('this auth service', this.authService.currentUserSig());
     });
   }
   title = 'github-card';

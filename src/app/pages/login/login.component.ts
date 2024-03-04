@@ -11,14 +11,19 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
+  //login object
   loginObj: Login;
+
+  //injections
   authService = inject(AuthService);
   router = inject(Router);
 
   constructor() {
     this.loginObj = new Login('', '');
   }
+  //error message
   errorMessage: string | null = null;
+  //login function to call the login service
   onLogin() {
     this.authService
       .login(this.loginObj.email, this.loginObj.password)
@@ -28,11 +33,13 @@ export class LoginComponent {
         },
         error: (err) => {
           this.loginObj = new Login('', '');
+          //setting the error message
           this.errorMessage = err.message;
         },
       });
   }
 }
+//login class
 export class Login {
   email: string;
   password: string;
