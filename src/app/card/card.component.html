@@ -1,0 +1,7 @@
+<div class="full-cover-gradient-card" #card (mousemove)="handleMouseMove($event)" (mouseleave)="resetCardStyle()">
+    <h1 class=" text-center font-bold text-2xl mb-5">{{cardData.title}}</h1>
+
+    <p>{{cardData.content}}</p>
+
+    <img src="{{ cardData.image }}" alt="{{ cardData.title }}" class="img-container text-end">
+</div>

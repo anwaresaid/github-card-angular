@@ -1,0 +1,43 @@
+.parent {
+  background: #1f293a;
+}
+.container {
+  width: 256px;
+  height: 256px;
+}
+.login-box {
+  width: 400px;
+}
+.login-box form {
+  padding: 0 50px;
+}
+.input-box {
+  margin: 25px 0;
+}
+.input-box input {
+  background: transparent;
+  border: 2px solid #2c4766;
+  border-radius: 40px;
+  padding: 0 20px;
+  transition: 0.5s ease;
+}
+.input-box input:focus,
+.input-box input:valid {
+  border-color: #0ef;
+}
+.input-box label {
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: 0.5s ease;
+}
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+  top: 1px;
+  font-size: 0.8em;
+  background: #1f293a;
+  padding: 0 6px;
+  color: #0ef;
+}
+.btn {
+  border-radius: 40px;
+}

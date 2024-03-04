@@ -1,0 +1,20 @@
+.card-container-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #0ef;
+}
+.btn {
+  border-radius: 40px;
+}
+.btn:hover {
+  background: #0ef;
+  color: #1f293a;
+}

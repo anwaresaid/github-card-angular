@@ -1,0 +1,11 @@
+<div class="page-container">
+    <h1 class="p-10 text-center font-bold text-3xl mb-10">Custom github cards with custom colors By <b>Anwar Esaid </b>
+    </h1>
+    <button type="button"
+        class="btn cursor-pointer text-slate-900 font-semibold w-40 outline-none text-base border none h-11 bg-cyan-400 "
+        (click)="onLogout()">
+        logout</button>
+    <section class="flex flex-wrap justify-around">
+        <app-card *ngFor="let card of cardDataArray" [cardData]="card"></app-card>
+    </section>
+</div>
